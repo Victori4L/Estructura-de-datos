@@ -22,7 +22,7 @@ y después de cada carrera, los puntos se actualizan según los resultados ingre
 En el programa se ha implementado el algoritmo Merge Sort, su complejidad es O(n log n), lo que lo hace altamente eficiente en comparación con otros algoritmos como Bubble Sort o Selection Sort, que tienen una complejidad de O(n²). Merge Sort divide la lista de pilotos en mitades, las ordena de manera recursiva y luego combina las sublistas ordenadas. Este análisis de complejidad demuestra que Merge Sort es apropiado para manejar listas de tamaño moderado a grande, garantizando un rendimiento óptimo en el proyecto.
 
 ## SICT0302: Toma decisiones
-Se seleccionó Merge Sort como el algoritmo de ordenamiento por su eficiencia y estabilidad. La estabilidad asegura que los pilotos con el mismo puntaje mantengan su orden relativo, lo cual es muuy importante en un sistema de clasificación. Además, Merge Sort maneja listas parcialmente ordenadas y es adecuado para reordenar los puntos de los pilotos tras cada carrera, lo que lo convierte en una elección correcta para este problema recurrente en el programa.
+Se seleccionó Merge Sort como el algoritmo de ordenamiento por su eficiencia y estabilidad. 
 
 
 ### Compilación
