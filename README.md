@@ -25,7 +25,6 @@ En el programa se ha implementado el algoritmo Merge Sort, su complejidad es O(n
 - **Inserción**:
   - **Agregar un nuevo piloto al final de la lista**:
     - Complejidad: **O(n)**, ya que es necesario recorrer la lista hasta el último nodo para insertar un nuevo piloto si no se cuenta con un puntero al final.
-    - Sin embargo, si mantienes un puntero al último nodo (cosa que no se hace en la versión actual), la inserción podría ser **O(1)**.
 
 - **Acceso**:
   - **Acceder a un piloto por su posición**:
