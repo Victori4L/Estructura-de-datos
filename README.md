@@ -20,6 +20,28 @@ y después de cada carrera, los puntos se actualizan según los resultados ingre
 
 ## SICT0301: Evalúa los componentes
 En el programa se ha implementado el algoritmo Merge Sort, su complejidad es O(n log n), lo que lo hace altamente eficiente en comparación con otros algoritmos como Bubble Sort o Selection Sort, que tienen una complejidad de O(n²). Merge Sort divide la lista de pilotos en mitades, las ordena de manera recursiva y luego combina las sublistas ordenadas. Este análisis de complejidad demuestra que Merge Sort es apropiado para manejar listas de tamaño moderado a grande, garantizando un rendimiento óptimo en el proyecto.
+**Complejidad de la Lista Simplemente Enlazada**
+
+- **Inserción**:
+  - **Agregar un nuevo piloto al final de la lista**:
+    - Complejidad: **O(n)**, ya que es necesario recorrer la lista hasta el último nodo para insertar un nuevo piloto si no se cuenta con un puntero al final.
+    - Sin embargo, si mantienes un puntero al último nodo (cosa que no se hace en la versión actual), la inserción podría ser **O(1)**.
+
+- **Acceso**:
+  - **Acceder a un piloto por su posición**:
+    - Complejidad: **O(n)**, ya que hay que recorrer la lista desde el comienzo hasta llegar a la posición deseada. Las listas simplemente enlazadas no permiten acceso directo como los arreglos.
+
+- **Actualización de puntos**:
+  - **Actualizar los puntos de un piloto en una posición específica**:
+    - Complejidad: **O(n)**, ya que se necesita recorrer la lista hasta encontrar el nodo correspondiente al piloto para luego actualizar sus puntos.
+
+- **Búsqueda**:
+  - **Buscar un piloto en la lista**:
+    - Complejidad: **O(n)**, ya que es necesario recorrer la lista hasta encontrar el piloto con el nombre o la característica deseada.
+
+- **Recorrido**:
+  - **Mostrar todos los pilotos y sus puntos**:
+    - Complejidad: **O(n)**, ya que se recorre toda la lista para mostrar cada piloto.
 
 ## SICT0302: Toma decisiones
 -**Se seleccionó Merge Sort** como el algoritmo de ordenamiento por su eficiencia y estabilidad, es mas eficiente porque tiene una complejidad de tiempo de ejecución O(n log n) en el peor caso y en el promedio. Esto es mucho más eficiente que otros algoritmos como el de Bubble Sort o Selection Sort, que tienen una complejidad de O(n²), especialmente cuando se trabaja con grandes cantidades de datos, como en el caso de varias carreras y pilotos en la temporada de Fórmula 1.
