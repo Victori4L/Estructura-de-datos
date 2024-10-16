@@ -1,7 +1,7 @@
 #ifndef FORMULA1_H
 #define FORMULA1_H
 
-#include <vector>
+#include <iostream>
 #include <string>
 
 class Pilot {
@@ -11,28 +11,51 @@ private:
     int points;
 
 public:
-    Pilot();  // Constructor por defecto
-    Pilot(std::string, std::string, int);  // Constructor parametrizado
+    Pilot();
+    Pilot(std::string, std::string, int);
     std::string getName() const;
     std::string getTeam() const;
     int getPoints() const;
     void updatePoints(int);
 };
 
+class PilotNode {
+public:
+    Pilot pilot;
+    PilotNode* next;
+
+    PilotNode(Pilot p, PilotNode* n = nullptr) : pilot(p), next(n) {}
+};
+
+class LinkedList {
+private:
+    PilotNode* head;
+
+    PilotNode* mergeSort(PilotNode* head);
+    PilotNode* merge(PilotNode* left, PilotNode* right);
+    PilotNode* getMiddle(PilotNode* head);
+
+public:
+    LinkedList();
+    ~LinkedList();
+    void addPilot(std::string name, std::string team, int points);
+    void updatePoints(int position, int points);
+    void displayPilots() const;
+    void sortPilots();
+    int size() const;
+};
+
 class Championship {
 private:
-    std::vector<Pilot> pilots;
+    LinkedList pilots;
+    int puntosPosicion[10];
 
 public:
     Championship();
     void agregarPilotosIniciales();
-    void registrarPuntosCarrera();
-    void ordenaPorPuntos();
+    void registrarPosicionesCarrera();
     void displayPilots() const;
-
-    // Merge sort functions
-    void mergeSort(int, int);
-    void merge(int, int, int);
+    bool preguntarOtraCarrera();
 };
 
 #endif
