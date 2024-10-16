@@ -1,6 +1,9 @@
 # Estructura-de-datos
 # Fórmula 1 Championship Points Tracker
 
+## Correciones del avance 1 
+Se especifico bien la subcompetencia SICT0302: Toma decisiones, ya que en el anterior no explique porque la eficiencia de utilizar el merge sort 
+
 ## Descripción del Proyecto
 
 Este proyecto simula el manejo de la clasificación de pilotos en el campeonato de Fórmula 1 para la temporada 2024. 
