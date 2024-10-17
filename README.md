@@ -2,7 +2,7 @@
 # Fórmula 1 Championship Points Tracker
 
 ## Correciones del avance 1 
-Se especifico bien la subcompetencia SICT0302: Toma decisiones, ya que en el anterior no explique porque la eficiencia de utilizar el merge sort 
+Se especifico bien la subcompetencia SICT0302: Toma decisiones, ya que en el anterior no explique porque la eficiencia de utilizar el merge sort, el main que se utiliza es "main.cpp" el que habia subido en el primer avance lo descague mas veces y aparecio como "main(1).cpp" 
 
 ## Descripción del Proyecto
 
