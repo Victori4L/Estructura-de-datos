@@ -1,14 +1,20 @@
 # Estructura-de-datos
 # Fórmula 1 Championship Points Tracker
 
-## Correciones del avance 1 
+## Correciones del los avances:
 Se especifico bien la subcompetencia SICT0302: Toma decisiones, ya que en el anterior no explique porque la eficiencia de utilizar el merge sort, el main que se utiliza es "main.cpp" el que habia subido en el primer avance lo descague mas veces y aparecio como "main(1).cpp" 
 
 ## Descripción del Proyecto
 
 Este proyecto simula el manejo de la clasificación de pilotos en el campeonato de Fórmula 1 para la temporada 2024. 
-Los pilotos comienzan con una lista de puntos desordenados, se ordenan por puntaje de mayor a menor utilizando el algoritmo **Merge Sort**,
-y después de cada carrera, los puntos se actualizan según los resultados ingresados. El programa permite:
+Lo primero que se observa en la terminal es que hay 3 opciones para escoger 
+-Primera opcion: "Registrar posiciones de carrera" 
+Los pilotos comienzan con una lista de puntos desordenados y a su lado izquiero un numero para cada piloto 
+Se preguntan las primeras diez posiciones de la carrera para sumar los puntos a esos pilotos, y despues se ordenan por puntaje de mayor a menor utilizando el algoritmo **Merge Sort**, se da la opcion de volver a simular una carrera y si es que elige que si se repite el ciclo y se van actualizando los puntos en el archivo .txt 
+-Segunda opcion: "Consultar información de un piloto por número"
+Si esta opción es elegida se da la lista de los pilotos de la temporada con un numero cada quien, después se pide ingresar el numero del piloto que se quiere saber la información, la información que se muestra es el nombre del piloto, el equipo al que pertenece y los puntos que lleva en la temporada 
+
+El programa permite:
 
 - Ver una lista desordenada de pilotos con sus puntos finales.
 - Ordenar a los pilotos por puntaje utilizando **Merge Sort**.
