@@ -8,48 +8,23 @@ Se especifico bien la subcompetencia SICT0302: Toma decisiones, ya que en el ant
 
 Este proyecto simula el manejo de la clasificación de pilotos en el campeonato de Fórmula 1 para la temporada 2024. 
 Lo primero que se observa en la terminal es que hay 3 opciones para escoger 
+
 -Primera opcion: "Registrar posiciones de carrera" 
 Los pilotos comienzan con una lista de puntos desordenados y a su lado izquiero un numero para cada piloto 
 Se preguntan las primeras diez posiciones de la carrera para sumar los puntos a esos pilotos, y despues se ordenan por puntaje de mayor a menor utilizando el algoritmo **Merge Sort**, se da la opcion de volver a simular una carrera y si es que elige que si se repite el ciclo y se van actualizando los puntos en el archivo .txt 
+
 -Segunda opcion: "Consultar información de un piloto por número"
 Si esta opción es elegida se da la lista de los pilotos de la temporada con un numero cada quien, después se pide ingresar el numero del piloto que se quiere saber la información, la información que se muestra es el nombre del piloto, el equipo al que pertenece y los puntos que lleva en la temporada 
 
-El programa permite:
+- Tercera opción: "Salir"
+Termina el programa y guarda la información actualizada.
 
-- Ver una lista desordenada de pilotos con sus puntos finales.
-- Ordenar a los pilotos por puntaje utilizando **Merge Sort**.
-- Registrar nuevos puntos después de cada carrera.
-- Ver la lista de pilotos actualizada y ordenada después de registrar los resultados de una carrera.
+## SICT0301 Evalúa los componentes
 
-## Cómo usar el programa
-1. **Al inicio**, se mostrará una lista desordenada de 13 pilotos con sus puntos.
-2. **A continuación**, el programa ordenará los pilotos por puntaje y mostrará la lista ordenada.
-3. **Luego**, te pedirá que ingreses los puntos adicionales para cada piloto después de una carrera.
-4. **Finalmente**, el programa ordenará nuevamente la lista de pilotos por puntos y mostrará la clasificación actualizada.
-
-## SICT0301: Evalúa los componentes
 En el programa se ha implementado el algoritmo Merge Sort, su complejidad es O(n log n), lo que lo hace altamente eficiente en comparación con otros algoritmos como Bubble Sort o Selection Sort, que tienen una complejidad de O(n²). Merge Sort divide la lista de pilotos en mitades, las ordena de manera recursiva y luego combina las sublistas ordenadas. Este análisis de complejidad demuestra que Merge Sort es apropiado para manejar listas de tamaño moderado a grande, garantizando un rendimiento óptimo en el proyecto.
 **Complejidad de la Lista Simplemente Enlazada**
+La **lista simplemente enlazada** se ha seleccionado por su eficiencia en la gestión dinámica de datos, ya que permite agregar y actualizar pilotos en \( O(n) \) sin requerir reordenación en memoria, a diferencia de estructuras más costosas en términos de complejidad. Esta estructura es adecuada para el proyecto, ya que permite recorrer y modificar la clasificación de pilotos de manera eficiente, lo cual resulta óptimo para un manejo continuo y dinámico de los datos a lo largo de la temporada.
 
-- **Inserción**:
-  - **Agregar un nuevo piloto al final de la lista**:
-    - Complejidad: **O(n)**, ya que es necesario recorrer la lista hasta el último nodo para insertar un nuevo piloto si no se cuenta con un puntero al final.
-
-- **Acceso**:
-  - **Acceder a un piloto por su posición**:
-    - Complejidad: **O(n)**, ya que hay que recorrer la lista desde el comienzo hasta llegar a la posición deseada. Las listas simplemente enlazadas no permiten acceso directo como los arreglos.
-
-- **Actualización de puntos**:
-  - **Actualizar los puntos de un piloto en una posición específica**:
-    - Complejidad: **O(n)**, ya que se necesita recorrer la lista hasta encontrar el nodo correspondiente al piloto para luego actualizar sus puntos.
-
-- **Búsqueda**:
-  - **Buscar un piloto en la lista**:
-    - Complejidad: **O(n)**, ya que es necesario recorrer la lista hasta encontrar el piloto con el nombre o la característica deseada.
-
-- **Recorrido**:
-  - **Mostrar todos los pilotos y sus puntos**:
-    - Complejidad: **O(n)**, ya que se recorre toda la lista para mostrar cada piloto.
 
 ## SICT0302: Toma decisiones
 -**Se seleccionó Merge Sort** como el algoritmo de ordenamiento por su eficiencia y estabilidad, es mas eficiente porque tiene una complejidad de tiempo de ejecución O(n log n) en el peor caso y en el promedio. Esto es mucho más eficiente que otros algoritmos como el de Bubble Sort o Selection Sort, que tienen una complejidad de O(n²), especialmente cuando se trabaja con grandes cantidades de datos, como en el caso de varias carreras y pilotos en la temporada de Fórmula 1.
