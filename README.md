@@ -27,10 +27,13 @@ En el programa se ha implementado el algoritmo **Merge Sort**, su complejidad es
 
 -**Complejidad de la Lista Simplemente Enlazada**
  La **lista simplemente enlazada** fue seleccionada por su eficiencia en la gestión dinámica de datos. Con una complejidad de acceso de O(n), permite agregar y actualizar pilotos sin necesidad de reordenar en memoria, lo cual es menos costoso en términos de tiempo y espacio que estructuras como los arreglos. Esta estructura es adecuada para el proyecto, ya que permite recorrer y modificar la clasificación de pilotos de manera continua y eficiente, optimizando el rendimiento en un manejo dinámico de datos a lo largo de la temporada.
+Se consideraron otras estructuras, como **vectores** y **listas dobles**, pero la lista simplemente enlazada se consideró ideal por su simplicidad y por el tipo de operaciones que se requieren. Aunque un vector permite un acceso de tiempo constante O(1) a elementos por índice, sería menos eficiente al añadir o eliminar elementos en posiciones arbitrarias, ya que se requiere reordenar la memoria en tales casos, resultando en una complejidad de O(n) para estas operaciones. Por otro lado, una lista doblemente enlazada ocuparía más memoria debido a los punteros adicionales y no aportaría un beneficio considerable en este contexto, donde solo se necesita recorrer la lista en una dirección y mantener actualizados los puntajes de los pilotos.
+
 
 -**Complejidad de los componentes del programa y del programa final** 
 
-Se encuentra en los comentarios del codigo 
+El análisis detallado de la complejidad de cada componente se encuentra en los comentarios del código, especificando el mejor, peor y promedio de cada función para asegurar la claridad del rendimiento esperado en diversas condiciones.
+
 
 
 ## SICT0302: Toma decisiones
@@ -39,7 +42,8 @@ Se encuentra en los comentarios del codigo
 Como el algoritmo de ordenamiento por su eficiencia y estabilidad, es mas eficiente porque tiene una complejidad de tiempo de ejecución O(n log n) en el peor caso y en el promedio. Esto es mucho más eficiente que otros algoritmos como el de Bubble Sort o Selection Sort, que tienen una complejidad de O(n²), especialmente cuando se trabaja con grandes cantidades de datos, como en el caso de varias carreras y pilotos en la temporada de Fórmula 1.
 
 -**Selección de estructura de datos**:
-La **lista simplemente enlazada** fue seleccionada para manejar la clasificación de los pilotos debido a su eficiencia en la actualización y manejo dinámico de datos. Esta estructura permite operaciones de inserción y eliminación en O(1) cuando se realizan al inicio o al final de la lista, y búsquedas en O(n), lo cual es eficiente considerando la cantidad de datos moderada del proyecto. A diferencia de arreglos, la lista simplemente enlazada permite agregar o eliminar pilotos sin necesidad de reorganizar toda la estructura, optimizando así el rendimiento y la flexibilidad en el manejo de la clasificación de pilotos en el campeonato.
+La **lista simplemente enlazada** fue elegida para manejar la clasificación de los pilotos por su eficiencia en la actualización y manejo dinámico de datos. Esta estructura permite realizar operaciones de inserción y eliminación en O(1) cuando se realizan al inicio o al final de la lista, y búsquedas en O(n), lo cual es adecuado para la cantidad de datos moderada del proyecto. A diferencia de los arreglos, la lista simplemente enlazada permite agregar o eliminar pilotos sin necesidad de reorganizar toda la estructura, lo que optimiza el rendimiento y la flexibilidad en el manejo de la clasificación de pilotos en el campeonato. Esta elección permite un acceso eficiente y adecuado a los elementos sin la necesidad de tiempo constante en cada operación, optimizando el programa en términos de simplicidad y funcionalidad.
+
 
 
 ### SICT0303: Implementa acciones científicas
