@@ -1,20 +1,53 @@
 #include "formula1.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
+/*
+    Análisis de Complejidad General del Programa:
+
+    - La clase `Pilot` y sus métodos tienen complejidad constante O(1) en todos los casos, 
+      ya que solo realiza operaciones de acceso y actualización de datos simples.
+
+    - La clase `LinkedList` implementa una lista simplemente enlazada con un conjunto de métodos para manipular pilotos:
+        - `addPilot` tiene complejidad O(n) en el peor caso debido al recorrido hasta el último nodo para la inserción.
+        - `displayPilots` y `size` recorren toda la lista y, por lo tanto, tienen una complejidad de O(n).
+        - `sortPilots` usa Merge Sort, con complejidad O(n log n) en todos los casos.
+
+    - La clase `Championship` maneja las operaciones del campeonato:
+        - Cargar datos desde un archivo (`cargarDatosDesdeArchivo`) y guardar datos (`guardarDatosEnArchivo`) tienen complejidad O(n), donde n es el número de pilotos.
+        - `registrarPosicionesCarrera` actualiza puntos y luego ordena, por lo que tiene complejidad O(n log n).
+    
+    Complejidad Final del Programa:
+    
+    - Mejor caso: O(1), si no hay datos y el usuario realiza operaciones simples.
+    - Caso promedio: O(m * n log n), donde `m` es el número de veces que se elige la opción de registrar una carrera.
+    - Peor caso: O(m * n log n), debido a la ordenación en cada iteración del registro de posiciones.
+*/
+
+// Complejidad: O(1) en todos los casos
 Pilot::Pilot() : name(""), team(""), points(0) {}
 
-Pilot::Pilot(std::string _name, std::string _team, int _points) : name(_name), team(_team), points(_points) {}
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
+Pilot::Pilot(std::string _name, std::string _team, int _points)
+    : name(_name), team(_team), points(_points) {}
 
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
 std::string Pilot::getName() const { return name; }
+
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
 std::string Pilot::getTeam() const { return team; }
+
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
 int Pilot::getPoints() const { return points; }
 
-void Pilot::updatePoints(int additionalPoints) {
-    points += additionalPoints;
-}
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
+void Pilot::updatePoints(int additionalPoints) { points += additionalPoints; }
 
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
 LinkedList::LinkedList() : head(nullptr) {}
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
 LinkedList::~LinkedList() {
     PilotNode* current = head;
     while (current != nullptr) {
@@ -24,6 +57,7 @@ LinkedList::~LinkedList() {
     }
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
 void LinkedList::addPilot(std::string name, std::string team, int points) {
     Pilot newPilot(name, team, points);
     PilotNode* newNode = new PilotNode(newPilot);
@@ -39,6 +73,7 @@ void LinkedList::addPilot(std::string name, std::string team, int points) {
     }
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
 int LinkedList::size() const {
     int count = 0;
     PilotNode* temp = head;
@@ -49,10 +84,11 @@ int LinkedList::size() const {
     return count;
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
 void LinkedList::updatePoints(int position, int points) {
     PilotNode* temp = head;
     int currentIndex = 1;
-    
+
     while (temp && currentIndex < position) {
         temp = temp->next;
         currentIndex++;
@@ -65,6 +101,7 @@ void LinkedList::updatePoints(int position, int points) {
     }
 }
 
+// Mejor caso, caso promedio y peor caso: O(n)
 void LinkedList::displayPilots() const {
     PilotNode* temp = head;
     int index = 1;
@@ -76,6 +113,7 @@ void LinkedList::displayPilots() const {
     std::cout << "----------------------------------------\n";
 }
 
+// Mejor caso, caso promedio y peor caso: O(n log n)
 PilotNode* LinkedList::mergeSort(PilotNode* head) {
     if (!head || !head->next) return head;
 
@@ -90,6 +128,7 @@ PilotNode* LinkedList::mergeSort(PilotNode* head) {
     return merge(left, right);
 }
 
+// Mejor caso, caso promedio y peor caso: O(n)
 PilotNode* LinkedList::merge(PilotNode* left, PilotNode* right) {
     if (!left) return right;
     if (!right) return left;
@@ -107,6 +146,7 @@ PilotNode* LinkedList::merge(PilotNode* left, PilotNode* right) {
     return result;
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
 PilotNode* LinkedList::getMiddle(PilotNode* head) {
     if (!head) return head;
 
@@ -123,10 +163,10 @@ PilotNode* LinkedList::getMiddle(PilotNode* head) {
     return slow;
 }
 
-void LinkedList::sortPilots() {
-    head = mergeSort(head);
-}
+// Complejidad: O(n log n) en todos los casos
+void LinkedList::sortPilots() { head = mergeSort(head); }
 
+// Complejidad: O(1) en todos los casos (mejor, peor y promedio)
 Championship::Championship() {
     puntosPosicion[0] = 25;
     puntosPosicion[1] = 18;
@@ -140,22 +180,49 @@ Championship::Championship() {
     puntosPosicion[9] = 1;
 }
 
-void Championship::agregarPilotosIniciales() {
-    pilots.addPilot("Lance Stroll", "Aston Martin", 195);
-    pilots.addPilot("Carlos Sainz", "Ferrari", 240);
-    pilots.addPilot("Sergio Perez", "Red Bull Racing", 285);
-    pilots.addPilot("Max Verstappen", "Red Bull Racing", 395);
-    pilots.addPilot("Pierre Gasly", "Alpine", 215);
-    pilots.addPilot("Charles Leclerc", "Ferrari", 290);
-    pilots.addPilot("Valtteri Bottas", "Alfa Romeo", 170);
-    pilots.addPilot("Lando Norris", "McLaren", 250);
-    pilots.addPilot("Lewis Hamilton", "Mercedes", 320);
-    pilots.addPilot("Esteban Ocon", "Alpine", 220);
-    pilots.addPilot("Fernando Alonso", "Aston Martin", 275);
-    pilots.addPilot("Oscar Piastri", "McLaren", 185);
-    pilots.addPilot("George Russell", "Mercedes", 260);
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
+bool Championship::cargarDatosDesdeArchivo(const std::string& nombreArchivo) {
+    std::ifstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el archivo " << nombreArchivo << " para lectura.\n";
+        return false;
+    }
+
+    std::string linea;
+    while (std::getline(archivo, linea)) {
+        std::istringstream ss(linea);
+        std::string nombre, equipo;
+        int puntos;
+
+        if (std::getline(ss, nombre, ',') && std::getline(ss, equipo, ',') && ss >> puntos) {
+            nombre.erase(0, nombre.find_first_not_of(" "));
+            equipo.erase(0, equipo.find_first_not_of(" "));
+            pilots.addPilot(nombre, equipo, puntos);
+        }
+    }
+    archivo.close();
+    return true;
 }
 
+// Mejor caso, caso promedio y peor caso: O(n)
+bool Championship::guardarDatosEnArchivo(const std::string& nombreArchivo) const {
+    std::ofstream archivo(nombreArchivo);
+    if (!archivo.is_open()) {
+        std::cerr << "Error al abrir el archivo " << nombreArchivo << " para escritura.\n";
+        return false;
+    }
+
+    PilotNode* temp = pilots.head;
+    while (temp) {
+        archivo << temp->pilot.getName() << ", " << temp->pilot.getTeam() << ", " << temp->pilot.getPoints() << "\n";
+        temp = temp->next;
+    }
+
+    archivo.close();
+    return true;
+}
+
+// Mejor caso, caso promedio y peor caso: O(n log n)
 void Championship::registrarPosicionesCarrera() {
     int listaSize = pilots.size();
     std::cout << "Introduce el número del piloto según su posición en la carrera (solo los primeros 10 recibirán puntos):\n";
@@ -176,6 +243,7 @@ void Championship::registrarPosicionesCarrera() {
     pilots.sortPilots();
 }
 
+// Mejor caso, caso promedio y peor caso: O(n)
 void Championship::displayPilots() const {
     std::cout << "Lista de pilotos:\n";
     std::cout << "----------------------------------------\n";
@@ -184,6 +252,7 @@ void Championship::displayPilots() const {
     pilots.displayPilots();
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(1)
 bool Championship::preguntarOtraCarrera() {
     char opcion;
     std::cout << "\n¿Quieres registrar otra carrera? (s/n): ";
@@ -192,23 +261,81 @@ bool Championship::preguntarOtraCarrera() {
     return opcion == 's' || opcion == 'S';
 }
 
+// Mejor caso: O(1), Caso promedio y peor caso: O(n)
+void Championship::consultarPilotoPorNumero() const {
+    PilotNode* temp = pilots.head;
+    int index = 1;
+    std::cout << "\nLista de pilotos:\n";
+    std::cout << "-----------------\n";
+    while (temp) {
+        std::cout << index << " | " << temp->pilot.getName() << "\n";
+        temp = temp->next;
+        ++index;
+    }
+    std::cout << "-----------------\n";
+
+    int numero;
+    std::cout << "Introduce el número del piloto que deseas consultar: ";
+    std::cin >> numero;
+
+    if (numero < 1 || numero > pilots.size()) {
+        std::cout << "Número inválido. Intenta de nuevo.\n";
+        return;
+    }
+
+    temp = pilots.head;
+    for (int i = 1; i < numero; ++i) {
+        temp = temp->next;
+    }
+
+    if (temp) {
+        std::cout << "\nInformación del piloto:\n";
+        std::cout << "Nombre: " << temp->pilot.getName() << "\n";
+        std::cout << "Equipo: " << temp->pilot.getTeam() << "\n";
+        std::cout << "Puntos: " << temp->pilot.getPoints() << " puntos\n";
+        std::cout << std::endl;
+    }
+}
+
+/*
+    Complejidad de la función principal:
+
+    - `cargarDatosDesdeArchivo`: O(n) en el peor caso, ya que puede leer hasta n pilotos del archivo.
+    - Cada iteración del bucle `do-while` tiene una complejidad basada en la opción seleccionada por el usuario:
+        - **Opción 1 (Registrar posiciones de carrera)**: La complejidad es O(n log n) debido a la ordenación después de registrar las posiciones.
+        - **Opción 2 (Consultar piloto)**: Complejidad O(n) en el peor caso.
+        - Complejidad final: O(m * n log n) en el peor caso, con `m` iteraciones de registrar carrera.
+*/
+
 int main() {
     Championship championship;
-
-    championship.agregarPilotosIniciales();
+    championship.cargarDatosDesdeArchivo("pilotos.txt");  // Complejidad: O(n)
 
     do {
-        std::cout << "Lista desordenada de pilotos:\n";
-        championship.displayPilots();
+        std::cout << "Opciones:\n";
+        std::cout << "1. Registrar posiciones de carrera\n";
+        std::cout << "2. Consultar información de un piloto por número\n";
+        std::cout << "3. Salir\n";
+        std::cout << "Elige una opción: ";
+        
+        int opcion;
+        std::cin >> opcion;
 
-        championship.registrarPosicionesCarrera();
+        if (opcion == 1) {
+            championship.displayPilots();  // Complejidad: O(n)
+            championship.registrarPosicionesCarrera();  // Complejidad: O(n log n)
+            championship.displayPilots();  // Complejidad: O(n)
+        } else if (opcion == 2) {
+            championship.consultarPilotoPorNumero();  // Complejidad: O(n) en el peor caso
+        } else if (opcion == 3) {
+            break;
+        } else {
+            std::cout << "Opción no válida.\n";
+        }
 
-        std::cout << "\nLista de pilotos después de registrar los puntos de la carrera:\n";
-        championship.displayPilots();
+    } while (true);
 
-    } while (championship.preguntarOtraCarrera());
-
+    championship.guardarDatosEnArchivo("pilotos.txt");  // Complejidad: O(n)
     std::cout << "Gracias por usar el sistema de registro de carreras.\n";
-
     return 0;
 }

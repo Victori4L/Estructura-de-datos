@@ -1,0 +1,13 @@
+Max Verstappen, Red Bull Racing, 482
+Lewis Hamilton, Mercedes, 376
+Sergio Perez, Red Bull Racing, 345
+Charles Leclerc, Ferrari, 334
+Fernando Alonso, Aston Martin, 305
+George Russell, Mercedes, 284
+Carlos Sainz, Ferrari, 276
+Lando Norris, McLaren, 266
+Pierre Gasly, Alpine, 231
+Esteban Ocon, Alpine, 224
+Lance Stroll, Aston Martin, 220
+Oscar Piastri, McLaren, 185
+Valtteri Bottas, Alfa Romeo, 176
