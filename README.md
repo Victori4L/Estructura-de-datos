@@ -1,6 +1,9 @@
 # Estructura-de-datos
 # Fórmula 1 Championship Points Tracker
 
+##Corrección final:
+Se agrego la parte de **Mecanismos para consultar información de las estructuras** en el readme 
+
 ## Correciones del los avances:
 Se modifico el analisis de las complejidades de todo el proyecto (estan en los comentarios del codigo), en la descripción de SICT0301 Evalúa los componentes, SICT0302: Toma decisiones y SICT0303: Implementa acciones científicas se cambiaron y añadieron cosas
 Se implementaron mecanismos para consultar información de las estructras
@@ -51,6 +54,8 @@ La **lista simplemente enlazada** fue elegida para manejar la clasificación de 
 
 **Mecanismos para consultar información de las estructuras**  
 El programa permite consultar la información de los pilotos de manera eficiente. Con la opción 2 del menú, se puede seleccionar un piloto por número para obtener detalles específicos, como el nombre, el equipo y los puntos acumulados en la temporada. Además, la opción 1 permite ver una lista de pilotos ordenada por puntaje luego de cada carrera, lo que facilita el seguimiento de las posiciones en el campeonato.
+
+El método para consultar información de un piloto en el proyecto utiliza una búsqueda secuencial en una lista simplemente enlazada, donde cada nodo representa a un piloto. Esta búsqueda comienza desde el nodo inicial de la lista, recorriendo cada nodo de manera lineal hasta alcanzar la posición especificada por el usuario, previamente ingresada como un número que identifica al piloto. Durante este recorrido, el programa compara el índice actual con el número ingresado, avanzando al siguiente nodo hasta encontrar el correspondiente. Una vez localizado, se extrae la información del piloto, como su nombre, equipo y puntos acumulados, y se muestra al usuario. Este mecanismo es eficiente para el tamaño moderado de datos del proyecto, ya que permite acceder dinámicamente a cualquier piloto sin necesidad de reorganizar la estructura o usar índices directos, aprovechando así las características de una lista simplemente enlazada.
 
 **Mecanismos de lectura de archivos**  
 El programa incluye un sistema de lectura de archivos que carga los datos de los pilotos desde el archivo `pilotos.txt` al inicio. Este mecanismo permite una experiencia de uso continua entre ejecuciones, recuperando la información actualizada sin necesidad de ingresar datos manualmente en cada ejecución. Esto asegura la persistencia de datos y mantiene la integridad de la clasificación a lo largo del uso del sistema.
