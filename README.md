@@ -2,7 +2,7 @@
 # Fórmula 1 Championship Points Tracker
 
 ## Corrección final:
-Se agrego la parte de **Mecanismos para consultar información de las estructuras** en el readme 
+Se agrego la parte de **Mecanismos para consultar información de las estructuras** en el readme y el pdf con los links de los problemas 
 
 **Correciones del los avances:**
 Se modifico el analisis de las complejidades de todo el proyecto (estan en los comentarios del codigo), en la descripción de SICT0301 Evalúa los componentes, SICT0302: Toma decisiones y SICT0303: Implementa acciones científicas se cambiaron y añadieron cosas
